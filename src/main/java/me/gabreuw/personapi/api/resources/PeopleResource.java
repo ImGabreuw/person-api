@@ -5,13 +5,11 @@ import me.gabreuw.personapi.api.dto.PersonDTO;
 import me.gabreuw.personapi.domain.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api/v1/people")
@@ -32,6 +30,11 @@ public class PeopleResource {
         return ResponseEntity
                 .created(personCreatedURI)
                 .body(savedPerson);
+    }
+
+    @GetMapping
+    public List<PersonDTO> listAll() {
+        return SERVICE.listAll();
     }
 
 }

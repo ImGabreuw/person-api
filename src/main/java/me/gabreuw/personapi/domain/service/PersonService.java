@@ -8,6 +8,8 @@ import me.gabreuw.personapi.domain.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Service
 public class PersonService {
@@ -23,4 +25,9 @@ public class PersonService {
         return MAPPER.toDTO(savedPerson);
     }
 
+    public List<PersonDTO> listAll() {
+        return MAPPER.toCollectionDTO(
+                REPOSITORY.findAll()
+        );
+    }
 }

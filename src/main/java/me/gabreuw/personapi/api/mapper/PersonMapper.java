@@ -5,6 +5,8 @@ import me.gabreuw.personapi.domain.model.Person;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper
 public interface PersonMapper {
 
@@ -12,6 +14,9 @@ public interface PersonMapper {
 
     PersonDTO toDTO(Person person);
 
+    List<PersonDTO> toCollectionDTO(List<Person> people);
+
     Person toEntity(PersonDTO personDTO);
+
 
 }
