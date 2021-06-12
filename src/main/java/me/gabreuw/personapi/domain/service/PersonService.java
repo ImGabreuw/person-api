@@ -48,4 +48,10 @@ public class PersonService {
                 .findById(id)
                 .orElseThrow(() -> new PersonNotFoundException(id));
     }
+
+    public PersonDTO updateById(Long id, PersonDTO personDTO) {
+        verifyIfExists(id);
+
+        return save(personDTO);
+    }
 }
