@@ -1,7 +1,6 @@
 package me.gabreuw.personapi.api.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import me.gabreuw.personapi.domain.model.enums.PhoneType;
 
 import javax.persistence.EnumType;
@@ -10,6 +9,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Getter
 @Setter
 public class PhoneDTO implements Serializable {
