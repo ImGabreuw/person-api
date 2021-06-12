@@ -19,7 +19,7 @@ public class PeopleResource {
     private final PersonService SERVICE;
 
     @PostMapping
-    public ResponseEntity<PersonDTO> createPerson(@RequestBody @Valid  PersonDTO personDTO) {
+    public ResponseEntity<PersonDTO> createPerson(@RequestBody @Valid PersonDTO personDTO) {
         var savedPerson = SERVICE.save(personDTO);
         var personCreatedURI = ServletUriComponentsBuilder
                 .fromCurrentRequest()
@@ -40,6 +40,14 @@ public class PeopleResource {
     @GetMapping(path = "/{id}")
     public PersonDTO findById(@PathVariable Long id) {
         return SERVICE.findById(id);
+    }
+
+    @PutMapping(path = "/{id}")
+    public PersonDTO updateById(
+            @PathVariable Long id,
+            @RequestBody @Valid PersonDTO personDTO
+    ) {
+        return SERVICE.updateById(id, personDTO);
     }
 
     @DeleteMapping(path = "/{id}")
