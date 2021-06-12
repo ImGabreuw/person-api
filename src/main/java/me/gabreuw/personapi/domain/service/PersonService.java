@@ -13,10 +13,12 @@ import org.springframework.stereotype.Service;
 public class PersonService {
 
     private final PersonRepository REPOSITORY;
-    private final PersonMapper MAPPER;
+    private final PersonMapper MAPPER = PersonMapper.INSTANCE;
 
-    public PersonDTO save(Person person) {
-        var savedPerson = REPOSITORY.save(person);
+    public PersonDTO save(PersonDTO personDTO) {
+        Person savedPerson = REPOSITORY.save(
+                MAPPER.toEntity(personDTO)
+        );
 
         return MAPPER.toDTO(savedPerson);
     }

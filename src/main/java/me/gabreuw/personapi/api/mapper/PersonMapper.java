@@ -1,24 +1,17 @@
 package me.gabreuw.personapi.api.mapper;
 
-import lombok.RequiredArgsConstructor;
 import me.gabreuw.personapi.api.dto.PersonDTO;
 import me.gabreuw.personapi.domain.model.Person;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
-@Component
-public class PersonMapper {
+@Mapper
+public interface PersonMapper {
 
-    private final ModelMapper MODEL_MAPPER;
+    PersonMapper INSTANCE = Mappers.getMapper(PersonMapper.class);
 
-    public PersonDTO toDTO(Person person) {
-        return MODEL_MAPPER.map(person, PersonDTO.class);
-    }
+    PersonDTO toDTO(Person person);
 
-    public Person toEntity(PersonDTO personDTO) {
-        return MODEL_MAPPER.map(personDTO, Person.class);
-    }
+    Person toEntity(PersonDTO personDTO);
 
 }
