@@ -14,6 +14,10 @@
 
 ![](./.github/modelo-conceitual.png)
 
+### 📝 TODO
+
+- [ ] API documentation with Swagger
+
 ## 💻 Prerequisites
 
 * JDK 11
