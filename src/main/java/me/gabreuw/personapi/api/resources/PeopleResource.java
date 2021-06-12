@@ -37,4 +37,9 @@ public class PeopleResource {
         return SERVICE.listAll();
     }
 
+    @GetMapping(path = "/{id}")
+    public PersonDTO findById(@PathVariable Long id) {
+        return SERVICE.findById(id);
+    }
+
 }
