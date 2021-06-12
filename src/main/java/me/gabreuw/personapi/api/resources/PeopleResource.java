@@ -42,4 +42,13 @@ public class PeopleResource {
         return SERVICE.findById(id);
     }
 
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+        SERVICE.deleteById(id);
+
+        return ResponseEntity
+                .noContent()
+                .build();
+    }
+
 }

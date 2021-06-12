@@ -33,10 +33,19 @@ public class PersonService {
     }
 
     public PersonDTO findById(Long id) {
-        var person = REPOSITORY
+        var recoveredPerson = verifyIfExists(id);
+
+        return MAPPER.toDTO(recoveredPerson);
+    }
+
+    public void deleteById(Long id) {
+        verifyIfExists(id);
+        REPOSITORY.deleteById(id);
+    }
+
+    private Person verifyIfExists(Long id) {
+        return REPOSITORY
                 .findById(id)
                 .orElseThrow(() -> new PersonNotFoundException(id));
-
-        return MAPPER.toDTO(person);
     }
 }
