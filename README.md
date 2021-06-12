@@ -6,7 +6,7 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/ImGabreuw/person-api?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/ImGabreuw/person-api?style=for-the-badge)
 
-![preview]()
+<img height="200px" width="300px" src="https://hermes.dio.me/santander/dev-week/logo-dio.svg">
 
 > REST API with Spring Boot for registering and managing an organization's people..
 
